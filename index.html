@@ -13,9 +13,7 @@
      HEADER - NAVBAR + DRAWER + CATEGORY NAV
      ================================================ -->
 <header>
-
-    <!-- Thanh điều hướng trên cùng -->
-    <!-- Logo & tên thương hiệu (nằm ngoài nav) -->
+<input type="checkbox" id="nav-mobile-input" class="nav-input" hidden />
 <a href="#" class="navbar-brand">
     <div class="brand-icon">
         <img src="Logo.png" alt="FANDY Logo">
@@ -23,66 +21,56 @@
     FANDY
 </a>
 
-<!-- Thanh điều hướng -->
 <nav class="navbar">
-
-    <!-- Menu desktop: Trang chủ, Sản phẩm, Đăng nhập, Đăng ký -->
     <ul class="navbar-menu">
         <li><a href="#">Trang chủ</a></li>
         <li class="active"><a href="#">Sản phẩm</a></li>
         <li><a href="#">Đăng nhập</a></li>
         <li><a href="#">Đăng ký</a></li>
     </ul>
+
     <div class="navbar-search">
         <input type="text" placeholder="Tìm kiếm...">
         <button></button>
     </div>
-    <!-- Nút giỏ hàng (desktop) -->
+
     <button class="navbar-cart">Giỏ hàng</button>
 
-    <!-- Nút hamburger (chỉ hiện trên mobile) -->
-    <div class="hamburger" id="hamburger" onclick="toggleDrawer()">
-        <span></span><span></span><span></span>
-    </div>
-
+    <!-- Checkbox công tắc + nút hamburger -->
+    
+    <label for="nav-mobile-input" class="nav-mobile-btn">&#9776;</label>
 </nav>
 
-<!-- Ô tìm kiếm (nằm ngoài nav) -->
+<!-- Lớp phủ tối: bấm vào để đóng drawer -->
+<label for="nav-mobile-input" class="mobile-overlay"></label>
 
+<!-- Panel drawer -->
+<div class="mobile-drawer">
 
-    <!-- Lớp phủ tối phía sau drawer, bấm vào để đóng -->
-    <div class="mobile-overlay" onclick="toggleDrawer()"></div>
-
-    <!-- Panel drawer kéo từ phải sang (mobile) -->
-    <div class="mobile-drawer">
-
-        <!-- Tiêu đề drawer: logo + nút đóng -->
-        <div class="drawer-header">
-            <div class="drawer-brand">
-                <div class="brand-icon">
-                    <img src="Logo.png" alt="FANDY Logo">
-                </div>
-                FANDY
+    <div class="drawer-header">
+        <div class="drawer-brand">
+            <div class="brand-icon">
+                <img src="Logo.png" alt="FANDY Logo">
             </div>
-            <button class="drawer-close" onclick="toggleDrawer()">✕</button>
+            FANDY
         </div>
-
-        <!-- Ô tìm kiếm trong drawer -->
-        <div class="drawer-search">
-            <input type="text" placeholder="Tìm kiếm...">
-        </div>
-
-        <!-- Danh sách menu trong drawer -->
-        <ul class="drawer-menu">
-            <li><a href="#">Trang chủ</a></li>
-            <li><a href="#">Sản phẩm</a></li>
-            <li><a href="#">Đăng nhập</a></li>
-            <li><a href="#">Đăng ký</a></li>
-            <li><a href="#">Giỏ hàng</a></li>
-        </ul>
-
+        <!-- Nút đóng drawer -->
+        <label for="nav-mobile-input" class="drawer-close">✕</label>
     </div>
 
+    <div class="drawer-search">
+        <input type="text" placeholder="Tìm kiếm...">
+    </div>
+
+    <ul class="drawer-menu">
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Sản phẩm</a></li>
+        <li><a href="#">Đăng nhập</a></li>
+        <li><a href="#">Đăng ký</a></li>
+        <li><a href="#">Giỏ hàng</a></li>
+    </ul>
+
+</div>
 
 </header>
 
