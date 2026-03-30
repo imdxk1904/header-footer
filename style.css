@@ -479,10 +479,14 @@ body.drawer-open .hamburger span:nth-child(3) { transform: translateY(-7px) rota
     .social-icons { justify-content: center; }
 }
 /* Giữ footer luôn sát đáy màn hình dù nội dung ít */
+html {
+    height: 100%;
+}
+
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 /* main tự co giãn để đẩy footer xuống đáy */
