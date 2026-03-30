@@ -15,22 +15,35 @@
     --dark: #1e2330;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: sans-serif;
     background: #f9f9f9;
     color: #222;
     line-height: 1.6;
     padding-top: 110px; /* chừa chỗ cho fixed navbar */
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+/* main tự co giãn để đẩy footer xuống đáy */
+main {
+    flex: 1;
 }
 
 hr { display: none; }
 
 
 /* ================================================
-   HEADER - NAVBAR (thanh điều hướng trên cùng)
+   HEADER - THANH TRÊN CÙNG (logo + nav + search)
    ================================================ */
 
-.navbar {
+/* Header bao ngoài: chứa logo + nav + search */
+header {
     position: fixed;
     top: 0; left: 0; right: 0;
     background: var(--primary);
@@ -42,7 +55,7 @@ hr { display: none; }
     box-shadow: 0 2px 16px rgba(255, 107, 0, 0.3);
 }
 
-/* --- Logo & Tên thương hiệu --- */
+/* --- Logo & Tên thương hiệu (nằm ngoài nav) --- */
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -52,7 +65,6 @@ hr { display: none; }
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-right: 40px;
     flex-shrink: 0;
 }
 
@@ -62,6 +74,14 @@ hr { display: none; }
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
     font-size: 18px;
+}
+
+/* --- Navbar: chứa menu + cart + hamburger --- */
+.navbar {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin: 0 20px;
 }
 
 /* --- Menu desktop (Trang chủ, Sản phẩm, ...) --- */
@@ -95,14 +115,8 @@ hr { display: none; }
     color: var(--text);
 }
 
-.arrow {
-    font-size: 10px;
-    transition: transform 0.25s;
-}
-
-/* --- Ô tìm kiếm trên navbar --- */
+/* --- Ô tìm kiếm (nằm ngoài nav) --- */
 .navbar-search {
-    margin-left: auto;
     position: relative;
     flex-shrink: 0;
 }
@@ -172,88 +186,6 @@ hr { display: none; }
     background: var(--text);
     border-radius: 2px;
     transition: transform 0.25s, opacity 0.25s;
-}
-
-
-/* ================================================
-   HEADER - CATEGORY NAV (thanh danh mục bên dưới navbar)
-   ================================================ */
-
-header > nav {
-    position: fixed;
-    top: 64px; left: 0;
-    width: 100%;
-    z-index: 999;
-    background: #fff;
-    border-bottom: 2px solid #eee;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    overflow: visible;
-    display: block;
-}
-
-header > nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    overflow: visible;
-}
-
-header > nav li {
-    padding: 14px 22px;
-    overflow: visible;
-}
-
-header > nav a {
-    text-decoration: none;
-    color: #222;
-    font-weight: 600;
-}
-
-header > nav a:hover { color: var(--primary); }
-header > nav a.active { color: var(--primary); }
-
-/* --- Dropdown danh mục --- */
-header > nav li.has-dropdown {
-    position: relative;
-}
-
-header > nav li.has-dropdown .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 10px 0;
-    min-width: 150px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    z-index: 1100;
-}
-
-header > nav li.has-dropdown:hover .dropdown {
-    display: block;
-}
-
-header > nav li.has-dropdown .dropdown li {
-    padding: 0;
-}
-
-header > nav li.has-dropdown .dropdown a {
-    display: block;
-    padding: 10px 20px;
-    color: #555;
-    font-weight: 400;
-}
-
-header > nav li.has-dropdown .dropdown a:hover {
-    color: var(--primary);
-}
-
-/* Dropdown item cuối căn về bên phải */
-header > nav li.has-dropdown:last-child .dropdown {
-    left: auto;
-    right: 0;
 }
 
 
@@ -450,6 +382,7 @@ body.drawer-open .hamburger span:nth-child(3) { transform: translateY(-7px) rota
    RESPONSIVE - Tablet (768px - 1024px)
    ================================================ */
 @media (max-width: 1024px) {
+    /* Ẩn menu, search, cart — hiện hamburger */
     .navbar-menu,
     .navbar-search,
     .navbar-cart { display: none; }
@@ -462,11 +395,6 @@ body.drawer-open .hamburger span:nth-child(3) { transform: translateY(-7px) rota
    RESPONSIVE - Mobile (< 768px)
    ================================================ */
 @media (max-width: 768px) {
-    header > nav li {
-        padding: 10px 12px;
-        font-size: 13px;
-    }
-
     .footer-container {
         flex-direction: column;
         align-items: center;
