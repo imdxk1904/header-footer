@@ -478,6 +478,4 @@ body.drawer-open .hamburger span:nth-child(3) { transform: translateY(-7px) rota
     .footer-info { justify-content: center; }
     .social-icons { justify-content: center; }
 }
-.footer {
-    margin-bottom: 0;
-}
+
