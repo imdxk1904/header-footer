@@ -352,10 +352,11 @@ header {
    RESPONSIVE - Tablet (768px - 1024px)
    ================================================ */
 @media (max-width: 1024px) {
-    /* Ẩn menu, search, cart — hiện hamburger */
     .navbar-menu,
     .navbar-search,
     .navbar-cart { display: none; }
+
+    .nav-mobile-btn { display: block; }
 }
 
 
@@ -412,13 +413,4 @@ main {
 
 .nav-input:checked ~ .mobile-drawer {
     transform: translateX(0);
-}
-
-/* --- Responsive: chỉ hiện hamburger trên mobile/tablet --- */
-@media (max-width: 1024px) {
-    .navbar-menu,
-    .navbar-search,
-    .navbar-cart { display: none; }
-
-    .nav-mobile-btn { display: block; }
 }
