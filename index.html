@@ -13,7 +13,8 @@
      HEADER - NAVBAR + DRAWER + CATEGORY NAV
      ================================================ -->
 <header>
-<input type="checkbox" id="nav-mobile-input" class="nav-input" hidden />
+<!-- Ẩn checkbox — đóng/mở drawer bằng CSS, không cần JS -->
+<input type="checkbox" id="nav-mobile-input" class="nav-input" />
 <a href="#" class="navbar-brand">
     <div class="brand-icon">
         <img src="Logo.png" alt="FANDY Logo">
@@ -33,14 +34,9 @@
         <input type="text" placeholder="Tìm kiếm...">
         <button></button>
     </div>
-
     <button class="navbar-cart">Giỏ hàng</button>
-
-    <!-- Checkbox công tắc + nút hamburger -->
-    
     <label for="nav-mobile-input" class="nav-mobile-btn">&#9776;</label>
 </nav>
-
 <!-- Lớp phủ tối: bấm vào để đóng drawer -->
 <label for="nav-mobile-input" class="mobile-overlay"></label>
 
@@ -71,7 +67,6 @@
     </ul>
 
 </div>
-
 </header>
 
 
