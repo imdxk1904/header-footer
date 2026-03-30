@@ -20,7 +20,7 @@ body {
     background: #f9f9f9;
     color: #222;
     line-height: 1.6;
-    padding-top: 110px;
+    padding-top: 110px; /* chừa chỗ cho fixed navbar */
 }
 
 hr { display: none; }
@@ -154,7 +154,7 @@ hr { display: none; }
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* --- Nút hamburger (chỉ hiện trên mobile) --- */
+/* --- Nút hamburger (chỉ hiện trên mobile/tablet) --- */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -248,6 +248,12 @@ header > nav li.has-dropdown .dropdown a {
 
 header > nav li.has-dropdown .dropdown a:hover {
     color: var(--primary);
+}
+
+/* Dropdown item cuối căn về bên phải */
+header > nav li.has-dropdown:last-child .dropdown {
+    left: auto;
+    right: 0;
 }
 
 
@@ -365,86 +371,6 @@ body.drawer-open .hamburger span:nth-child(3) { transform: translateY(-7px) rota
 
 
 /* ================================================
-   NỘI DUNG CHÍNH - SECTIONS & SẢN PHẨM
-   ================================================ */
-
-section {
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
-
-section h2 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 32px;
-    padding-left: 16px;
-    border-left: 6px solid #ff3f34;
-}
-
-/* Fix anchor bị che bởi fixed navbar */
-section[id]::before {
-    content: "";
-    display: block;
-    height: 135px;
-    margin-top: -135px;
-    visibility: hidden;
-}
-
-/* --- Lưới sản phẩm --- */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-top: 32px;
-}
-
-/* --- Card sản phẩm --- */
-.product-card {
-    background: #fff;
-    border-radius: 14px;
-    padding: 20px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-}
-
-.product-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 12px;
-}
-
-.product-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.product-card p { color: #555; margin-bottom: 6px; }
-.product-card p:last-child { font-weight: bold; color: #000; }
-
-/* --- Giá sản phẩm --- */
-.price {
-    color: #000;
-    font-weight: 700;
-    font-size: 16px;
-}
-
-.old-price {
-    text-decoration: line-through;
-    color: #aaa !important;
-    font-size: 13px;
-    font-weight: 400 !important;
-}
-
-
-/* ================================================
    FOOTER
    ================================================ */
 
@@ -515,7 +441,7 @@ section[id]::before {
 .footer-bottom {
     text-align: center;
     padding: 16px;
-    border-top: 1px solid rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     margin-top: 20px;
 }
 
@@ -536,16 +462,6 @@ section[id]::before {
    RESPONSIVE - Mobile (< 768px)
    ================================================ */
 @media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .product-card { padding: 12px; }
-    .product-card h3 { font-size: 15px; }
-
-    section { margin: 30px auto; }
-
     header > nav li {
         padding: 10px 12px;
         font-size: 13px;
@@ -561,69 +477,4 @@ section[id]::before {
     .footer-logo { width: 120px; margin: 0 auto 12px; display: block; }
     .footer-info { justify-content: center; }
     .social-icons { justify-content: center; }
-}
-
-
-/* ================================================
-   RESPONSIVE - Mobile nhỏ (≤ 480px)
-   ================================================ */
-@media (max-width: 480px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .product-card img { height: 110px; }
-    .product-card h3 { font-size: 13px; }
-}
-/* Dropdown item cuối căn về bên phải */
-header > nav li.has-dropdown:last-child .dropdown {
-    left: auto;
-    right: 0;
-}
-/* ================================================
-   PRODUCT CARD - NÚT GIỎ HÀNG & BADGE GIẢM GIÁ
-   ================================================ */
-
-.product-card {
-    position: relative; /* để badge định vị được */
-}
-
-/* --- Badge % giảm giá --- */
-.discount-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: #ff3f34;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 20px;
-    z-index: 1;
-}
-
-/* --- Nút thêm vào giỏ hàng --- */
-.btn-add-cart {
-    display: block;
-    width: 100%;
-    margin-top: 12px;
-    padding: 9px 0;
-    background: var(--primary);
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    font-family: sans-serif;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-}
-
-.btn-add-cart:hover {
-    background: #e05e00;
-    transform: translateY(-1px);
-}
-
-.btn-add-cart:active {
-    transform: translateY(0);
 }
