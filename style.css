@@ -15,9 +15,6 @@
     --dark: #1e2330;
 }
 
-html {
-    height: 100%;
-}
 
 body {
     font-family: sans-serif;
@@ -28,11 +25,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-}
-
-/* main tự co giãn để đẩy footer xuống đáy */
-main {
-    flex: 1;
 }
 
 hr { display: none; }
