@@ -165,27 +165,6 @@ header {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* --- Nút hamburger (chỉ hiện trên mobile/tablet) --- */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    margin-left: auto;
-    padding: 6px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.12);
-}
-
-.hamburger span {
-    display: block;
-    width: 20px; height: 2px;
-    background: var(--text);
-    border-radius: 2px;
-    transition: transform 0.25s, opacity 0.25s;
-}
-
-
 /* ================================================
    HEADER - MOBILE DRAWER (menu kéo ra trên điện thoại)
    ================================================ */
@@ -291,12 +270,6 @@ header {
     color: var(--text);
 }
 
-/* --- Trạng thái khi drawer đang mở --- */
-body.drawer-open .mobile-overlay { display: block; opacity: 1; }
-body.drawer-open .mobile-drawer { transform: translateX(0); }
-body.drawer-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-body.drawer-open .hamburger span:nth-child(2) { opacity: 0; }
-body.drawer-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 
 /* ================================================
@@ -383,8 +356,6 @@ body.drawer-open .hamburger span:nth-child(3) { transform: translateY(-7px) rota
     .navbar-menu,
     .navbar-search,
     .navbar-cart { display: none; }
-
-    .hamburger { display: flex; }
 }
 
 
@@ -417,4 +388,37 @@ body {
 /* main tự co giãn để đẩy footer xuống đáy */
 main {
     flex: 1;
+}
+/* --- Ẩn checkbox --- */
+.nav-input { display: none; }
+
+/* --- Nút hamburger (label) --- */
+.nav-mobile-btn {
+    display: none;
+    font-size: 22px;
+    color: var(--text);
+    cursor: pointer;
+    margin-left: auto;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* --- Khi checkbox được check: mở drawer + overlay --- */
+.nav-input:checked ~ .mobile-overlay {
+    display: block;
+    opacity: 1;
+}
+
+.nav-input:checked ~ .mobile-drawer {
+    transform: translateX(0);
+}
+
+/* --- Responsive: chỉ hiện hamburger trên mobile/tablet --- */
+@media (max-width: 1024px) {
+    .navbar-menu,
+    .navbar-search,
+    .navbar-cart { display: none; }
+
+    .nav-mobile-btn { display: block; }
 }
